@@ -46,14 +46,18 @@ You'll probably want to use the [ncurses](https://www.gnu.org/software/ncurses/)
 since the [Qt](https://www.qt.io/)-based [emulator](emulator/qt-vt100/) is still a work-in-progress.
 
 The [Makefile](emulator/ncurses-vt100/Makefile) has been slightly modified for use in OS X, largely because the C/C++ compiler
-that Apple now includes doesn't support variable-length array declarations.  The simplest solution is to install a newer version
-of GCC using Brew:
+that Apple now includes doesn't support variable-length array declarations.  The simplest solution was to install a newer
+version of GCC using Brew:
 
     brew install gcc
 
-Then the Makefile was modified to invoke `g++-6` instead of `g++` for .cpp files and `gcc-6` for .c files, because the
-8080 emulation C code is referenced by the VT100 simulation C++ code as `extern "C"`.
+As of this writing, Brew installs GCC v6.x and creates symbolic links for GCC such as `gcc-6`, `g++-6`, etc.
+
+So the [Makefile](emulator/ncurses-vt100/Makefile) was modified to invoke `g++-6` instead of `g++` for .cpp files and `gcc-6`
+for .c files, since the 8080 emulation C code is referenced by the VT100 simulation C++ code as `extern "C"`.
 
     cd emulator/ncurses-vt100
     make
     vt100sim --run ../../ROMs/basic.bin
+
+Note: the 8080 emulation code is based on the [Z80-CPU simulator](http://www.autometer.de/unix4fun/z80pack/) written by Udo Monk.
