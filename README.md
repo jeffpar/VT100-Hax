@@ -34,10 +34,11 @@ To disassemble the ROM, use `dz80` from [D52](http://www.brouhaha.com/~eric/soft
 	dz80 -80 basic.bin
 
 This produces `basic.d80`.  To reassemble, use [asm8080](https://github.com/begoon/asm8080).  Before trying to reassemble,
-you should replace references to `X2000` with `2000h`, and then add another 40 `nop` instructions after the final `nop`, for
-a total of 41.
+replace references to `X2000` with `2000h`, and add another 40 `nop` instructions after the final `nop`.
 
 	asm8080 -lbasicnew -obasicnew basic.d80
+
+The assembler should produce `basicnew.bin` and `basicnew.lst`, and the bin files should be identical.
 
 Using the VT100-Hax Emulator
 ----------------------------
