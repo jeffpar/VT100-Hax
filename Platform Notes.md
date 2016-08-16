@@ -70,11 +70,11 @@ RAM Map
 0x2000  | 0x2012  |  18B   | Blank lines for refresh (6 x 3B)
 0x2012  | 0x204e  |  60B   | Stack area (grows down from 0x204e)
 0x204f  | 0x22d0  | 641B   | Scratch Pad/Setup Area(?)
- 0x2052  | 0x2054  |   2B   | 0x2004 during init ?
- 0x2068  | 0x2069  |   1B   | Keys flag buffer
- 0x206a  | 0x206e  |   3B   | New keys pressed buffer
- 0x20f6  | 0x20f8  |   2B   | 0x22d0 during init?
- 0x2014  | 0x2015  |   1B   | 0xff during init?
+0x2052  | 0x2054  |   2B   | 0x2004 during init ?
+0x2068  | 0x2069  |   1B   | Keys flag buffer
+0x206a  | 0x206e  |   3B   | New keys pressed buffer
+0x20f6  | 0x20f8  |   2B   | 0x22d0 during init?
+0x2014  | 0x2015  |   1B   | 0xff during init?
 0x22d0  | 0x2c00  | 2352B  | Screen RAM
 
 0x22bb through 0x22d0 appear to be unused!!!
