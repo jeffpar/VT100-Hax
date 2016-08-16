@@ -2,8 +2,8 @@ VT100 Hax for Retrocomp 2014
 ============================
 
 [Adam Mayer](https://github.com/phooky) reverse-engineered the VT100 firmware and added some patches for the 2014 Retrocomp.
-It's crazy and fun, and details regarding the [ROMs](#rom-overview) and the [VT100-Hax Emulator](#using-the-vt100-hax-emulator)
-are below.
+It's crazy and fun! For some details regarding the [ROMs](#rom-overview) and the [VT100-Hax Emulator](#using-the-vt100-hax-emulator),
+read on.
 
 ROM Overview
 ------------
@@ -26,7 +26,7 @@ characters.  However, this ROM wasn't needed for the challenge, and it isn't use
 Unfortunately, the above website is not currently available, but it's still accessiable via the
 [Wayback Machine](https://web.archive.org/web/20140723115846/http://www.dunnington.u-net.com/public/DECROMs/).
 Information from that website has also been preserved at [pcjs.org](http://www.pcjs.org/devices/roms/dec/)
-and in [GitHub](https://github.com/jeffpar/pcjs/tree/master/devices/roms/dec). 
+and on [GitHub](https://github.com/jeffpar/pcjs/tree/master/devices/roms/dec). 
 
 To create a single 8Kb ROM image from the four 2Kb ROMs:
 
@@ -38,7 +38,7 @@ To disassemble the ROM, use `dz80` from [D52](http://www.brouhaha.com/~eric/soft
 
 	dz80 -80 basic.bin
 
-This produces `basic.d80`.  To reassemble, use [asm8080](https://github.com/begoon/asm8080).  Before trying to reassemble,
+This produces `basic.d80`.  To reassemble, use [asm8080](https://github.com/begoon/asm8080).  But first,
 replace references to `X2000` with `2000h`, and pad the image to 8K by replacing the final `nop` with:
 
 	org	1fffh
@@ -72,9 +72,11 @@ for .c files, since the 8080 emulation C code is referenced by the VT100 simulat
     vt100sim --run ../../ROMs/basic.bin
 
 The emulator starts a `bash` process and connects its I/O to the simulated VT100 terminal.  Press F10 to switch between
-*TYPING* mode and *CONTROL* mode.  In *CONTROL* mode, you can press:
+*TYPING* mode and *CONTROL* mode.
 
-- ` ` to start/stop
+In *CONTROL* mode, you can press:
+
+- `space` to start/stop
 - `b` to set a breakpoint
 - `d` to delete a breakpoint
 - `m` to snapshot memory
